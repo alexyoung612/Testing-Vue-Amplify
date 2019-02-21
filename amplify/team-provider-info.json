@@ -1,5 +1,5 @@
 {
-    "providers": {
+    "NONE": {
         "awscloudformation": {
             "AuthRoleName": "quotera-20190218223246-authRole",
             "UnauthRoleArn": "arn:aws:iam::183577290333:role/quotera-20190218223246-unauthRole",
@@ -9,6 +9,11 @@
             "UnauthRoleName": "quotera-20190218223246-unauthRole",
             "StackName": "quotera-20190218223246",
             "StackId": "arn:aws:cloudformation:us-west-2:183577290333:stack/quotera-20190218223246/2bb1bb60-3410-11e9-aad9-06142c801c66"
+        },
+        "categories": {
+            "auth": {
+                "cognitoab3ca520": {}
+            }
         }
     }
 }

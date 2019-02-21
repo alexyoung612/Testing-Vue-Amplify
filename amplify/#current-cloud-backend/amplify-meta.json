@@ -1,14 +1,35 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "quotera-20190218223246-authRole",
-            "UnauthRoleArn": "arn:aws:iam::183577290333:role/quotera-20190218223246-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::183577290333:role/quotera-20190218223246-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "quotera-20190218223246-deployment",
-            "UnauthRoleName": "quotera-20190218223246-unauthRole",
-            "StackName": "quotera-20190218223246",
-            "StackId": "arn:aws:cloudformation:us-west-2:183577290333:stack/quotera-20190218223246/2bb1bb60-3410-11e9-aad9-06142c801c66"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "quotera-20190218223246-authRole",
+			"UnauthRoleArn": "arn:aws:iam::183577290333:role/quotera-20190218223246-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::183577290333:role/quotera-20190218223246-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "quotera-20190218223246-deployment",
+			"UnauthRoleName": "quotera-20190218223246-unauthRole",
+			"StackName": "quotera-20190218223246",
+			"StackId": "arn:aws:cloudformation:us-west-2:183577290333:stack/quotera-20190218223246/2bb1bb60-3410-11e9-aad9-06142c801c66"
+		}
+	},
+	"auth": {
+		"cognitoab3ca520": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/quotera-20190218223246-deployment/amplify-cfn-templates/auth/cognitoab3ca520-cloudformation-template.yml",
+				"logicalId": "authcognitoab3ca520"
+			},
+			"lastPushTimeStamp": "2019-02-20T05:36:54.212Z",
+			"output": {
+				"AppClientSecret": "kk6srmq5kf5o5i4qe5orb86ak29m76ijqqvggs4lem5jalm193b",
+				"UserPoolId": "us-west-2_DpmuQMgwb",
+				"AppClientIDWeb": "40srvhhs56oiatqdj61s477j5u",
+				"AppClientID": "5g9ln2gr9tfocqe35d5lci5t9a",
+				"IdentityPoolId": "us-west-2:e60dd2b5-9bc5-4fd2-b2cb-a5d32f9d19bf",
+				"IdentityPoolName": "cognitoab3ca520_identitypool_ab3ca520",
+				"UserPoolName": "cognitoab3ca520_userpool_ab3ca520"
+			},
+			"lastPushDirHash": "8Eip+WolHqAtTksAzUptD4y06BM="
+		}
+	}
 }
