@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotera-20190218223246-deployment/amplify-cfn-templates/auth/cognitoab3ca520-cloudformation-template.yml",
 				"logicalId": "authcognitoab3ca520"
 			},
-			"lastPushTimeStamp": "2019-02-20T05:36:54.212Z",
+			"lastPushTimeStamp": "2019-02-22T06:46:44.368Z",
 			"output": {
 				"AppClientSecret": "kk6srmq5kf5o5i4qe5orb86ak29m76ijqqvggs4lem5jalm193b",
 				"UserPoolId": "us-west-2_DpmuQMgwb",
@@ -30,6 +30,28 @@
 				"UserPoolName": "cognitoab3ca520_userpool_ab3ca520"
 			},
 			"lastPushDirHash": "8Eip+WolHqAtTksAzUptD4y06BM="
+		}
+	},
+	"function": {
+		"quoteraTestFunc": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2019-02-22T06:45:15.348Z",
+			"lastPackageTimeStamp": "2019-02-22T06:45:16.178Z",
+			"distZipFilename": "quoteraTestFunc-1550817915-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/quotera-20190218223246-deployment/amplify-cfn-templates/function/quoteraTestFunc-cloudformation-template.json",
+				"logicalId": "functionquoteraTestFunc"
+			},
+			"lastPushTimeStamp": "2019-02-22T06:46:44.375Z",
+			"output": {
+				"Region": "us-west-2",
+				"Arn": "arn:aws:lambda:us-west-2:183577290333:function:quoteraTestFunc",
+				"Name": "quoteraTestFunc"
+			},
+			"lastPushDirHash": "paTmfFYS1hDPeuCDfYhcnib0zHE="
 		}
 	}
 }

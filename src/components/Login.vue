@@ -16,7 +16,6 @@ export default {
   name: 'Login',
   data() {
     return {
-      signedIn: false,
     };
   },
   created() {
@@ -26,18 +25,27 @@ export default {
       if (info === 'signedIn') {
         this.findUser();
       } else {
-        this.signedIn = false;
+        this.$store.state.signedIn = false;
+        this.$store.state.user = null;
       }
     });
+  },
+  computed: {
+    signedIn() {
+      return this.$store.state.signedIn;
+    },
   },
   methods: {
     async findUser() {
       try {
         const user = await Auth.currentAuthenticatedUser();
-        this.signedIn = true;
+        this.$store.state.signedIn = true;
+        this.$store.state.user = user;
+
         console.log(user);
       } catch (err) {
-        this.signedIn = false;
+        this.$store.state.signedIn = false;
+        this.$store.state.user = null;
       }
     },
   },
