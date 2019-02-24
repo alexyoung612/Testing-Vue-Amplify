@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import { Auth } from 'aws-amplify';
 import Home from './views/Home.vue';
 import Quotes from './views/Quotes.vue';
+import About from './views/About.vue';
 
 Vue.use(Router);
 
@@ -17,10 +19,11 @@ const router = new Router({
     {
       path: '/about',
       name: 'about',
+      component: About,
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
     {
       path: '/quotes',
@@ -32,21 +35,22 @@ const router = new Router({
 });
 
 router.beforeResolve((to, from, next) => {
+  // if route requires auth
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    let user;
-    Vue.prototype.$Amplify.Auth.currentAuthenticatedUser().then((data) => {
+    // check for authenticated user.
+    Auth.currentAuthenticatedUser().then((data) => {
+      // if user is authenticated, continue.
       if (data && data.signInUserSession) {
-        user = data;
         next();
+      // not authenticated. redirect to main.
+      } else {
+        next({ path: '/' });
       }
     }).catch((e) => {
       console.log(e);
-    });
-    if (!user) {
       next({ path: '/' });
-    } else {
-      next();
-    }
+    });
+  // auth not required. continue.
   } else {
     next();
   }
