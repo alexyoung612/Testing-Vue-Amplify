@@ -1,16 +1,20 @@
 <template>
     <div class="signin">
         <div v-if="!signedIn">
-            <input v-model="username" type="text" name="" placeholder="Email"><br>
-            <input v-model="password" type="password" name="" placeholder="Password"><br>
+            <v-text-field v-model="username" type="text" name="" placeholder="Email">
+            </v-text-field><br>
+            <v-text-field v-model="password" type="password" name="" placeholder="Password">
+            </v-text-field><br>
             <div v-if="newPasswordRequired">
               Please enter a new password<br>
-              <input v-model="newPassword" type="password" name="" placeholder="New Password"><br>
+              <v-text-field v-model="newPassword"
+                type="password" name="" placeholder="New Password">
+              </v-text-field><br>
             </div>
-            <button @click="signIn">Sign in</button>
+            <v-btn color="success" @click="signIn">Sign in</v-btn>
         </div>
         <div v-if="signedIn">
-            <button @click="signOut">Sign Out</button>
+            <v-btn color="info" @click="signOut">Sign Out</v-btn>
         </div>
     </div>
 </template>

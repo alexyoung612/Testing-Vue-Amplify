@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <SignIn/>
   </div>
 </template>
@@ -10,7 +9,7 @@
 import SignIn from '@/components/SignIn.vue';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     SignIn,
   },
