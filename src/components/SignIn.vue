@@ -30,7 +30,11 @@
                 placeholder="New Password"
               ></v-text-field><br>
             </div>
-            <v-btn color="success" @click="signIn">Sign in</v-btn>
+            <v-btn
+              color="success"
+              @click="signIn"
+              v-bind:loading="signInLoading"
+            >Sign in</v-btn>
         </div>
         <div v-if="signedIn">
             <v-btn color="info" @click="signOut">Sign Out</v-btn>
@@ -61,6 +65,7 @@ export default {
         v => (v && v.length >= 8) || 'Password must be at least 8 characters',
         v => /\d/.test(v) || 'Password must contain at least one integer',
       ],
+      signInLoading: false,
       valid: true,
     };
   },
@@ -95,8 +100,10 @@ export default {
       }
     },
     signIn() {
+      this.signInLoading = true;
       Auth.signIn(this.username, this.password)
         .then((user) => {
+          this.signInLoading = false;
           if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
             this.newPasswordRequired = true;
             Auth.completeNewPassword(
@@ -117,6 +124,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+          this.signInLoading = false;
           alert(err.message);
           this.validate();
         });
