@@ -1,18 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <SignIn/>
+    <h1>This is the home page</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import SignIn from '@/components/SignIn.vue';
+
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    SignIn,
   },
 };
 </script>

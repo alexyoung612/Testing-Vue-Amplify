@@ -4,6 +4,7 @@ import { Auth } from 'aws-amplify';
 import Home from './views/Home.vue';
 import Quotes from './views/Quotes.vue';
 import About from './views/About.vue';
+import SignIn from './views/SignIn.vue';
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ const router = new Router({
       name: 'quotes',
       component: Quotes,
       meta: { requiresAuth: true },
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: SignIn,
     },
   ],
 });
