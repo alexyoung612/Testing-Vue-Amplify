@@ -1,17 +1,15 @@
 <template>
   <div class="home">
-    <SignIn/>
+    <h1>This is the home page</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import SignIn from '@/components/SignIn.vue';
+
 
 export default {
   name: 'Home',
   components: {
-    SignIn,
   },
 };
 </script>

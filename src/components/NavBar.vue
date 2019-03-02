@@ -13,18 +13,26 @@
             </v-toolbar-title>
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn
-                v-for="item in menu"
+                v-for="item in leftMenu"
                 :key="item.icon"
                 :to="item.link"
                 flat
                 >{{ item.title }}</v-btn>
             </v-toolbar-items>
-            <v-spacer class="hidden-md-and-up"></v-spacer>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn
+                v-for="item in rightMenu"
+                :key="item.icon"
+                :to="item.link"
+                flat
+                >{{ item.title }}</v-btn>
+            </v-toolbar-items>
             <v-menu class="hidden-md-and-up">
                 <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
                 <v-list>
                 <v-list-tile
-                v-for="item in menu"
+                v-for="item in leftMenu.concat(rightMenu)"
                 :key="item.icon"
                 :to="item.link"
                 >
@@ -38,14 +46,18 @@
 
 </template>
 <script>
+
 export default {
   name: 'NavBar',
   data() {
     return {
-      menu: [
+      leftMenu: [
         { icon: 'home', title: 'Home', link: '/' },
         { icon: 'info', title: 'About', link: '/about' },
         { icon: 'warning', title: 'Quotes', link: '/quotes' },
+      ],
+      rightMenu: [
+        { icon: 'signin', title: 'Sign In', link: '/signin' },
       ],
       tile: false,
       avatarSize: 36,
