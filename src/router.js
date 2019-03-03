@@ -50,11 +50,11 @@ router.beforeResolve((to, from, next) => {
         next();
       // not authenticated. redirect to main.
       } else {
-        next({ path: '/' });
+        next({ path: '/signin' });
       }
     }).catch((e) => {
       console.log(e);
-      next({ path: '/' });
+      next({ path: '/signin' });
     });
   // auth not required. continue.
   } else {

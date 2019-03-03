@@ -54,7 +54,7 @@ export default {
       leftMenu: [
         { icon: 'home', title: 'Home', link: '/' },
         { icon: 'info', title: 'About', link: '/about' },
-        { icon: 'warning', title: 'Quotes', link: '/quotes' },
+        { icon: 'quotes', title: 'Quotes', link: '/quotes' },
       ],
       rightMenu: [
         { icon: 'signin', title: 'Sign In', link: '/signin' },
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     menuItems() {
-      return this.menu;
+      return this.leftMenu.concat(this.rightMenu);
     },
   },
 };
